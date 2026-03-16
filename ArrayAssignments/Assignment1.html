@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Array</title>
+  </head>
+  <body>
+    
+    <div class="container w-75 rounded m-5 p-3" style="background-color: rgb(184, 181, 181); height: 300px;">
+        <h2>1.To-Do List Manager</h2>
+        <div class="container">
+            <input type="text" id="inputAssign1" placeholder="Enter A Task" style="height: 30px ;">
+            <button class="btn btn-primary"  onclick="addToDos()">Add Task</button>
+            <button class="btn btn-primary" onclick="ClearAllToDo()">Clear All</button>
+        </div>
+        <div class="container" id="resultToDo"></div>
+    </div>
+    <script>
+        toDos=[]
+        function renderToDo(){
+             document.querySelector('#resultToDo').innerHTML=toDos.map((task ,i)=>`
+                                     <div class='mb-1'>
+                                        <b class='text-primary pe-5'>${task}</b>
+                                        <button class='btn btn-danger' onclick="deletetask(${i})"">Delete</button>
+        `).join('')
+        }
+        function addToDos(){
+        inputToDoElmt=document.querySelector('#inputAssign1')
+        newToDo=inputToDoElmt.value
+        toDos.push(newToDo)
+        console.log(toDos)
+        renderToDo()
+        inputToDoElmt.value=''
+        }
+
+        function ClearAllToDo(){
+            toDos=[]
+            renderToDo()
+        }
+        function deletetask(i){
+            toDos.splice(i,1)
+            console.log(i)
+            renderToDo()
+        }
+    </script>
+
+
+
+
+<section>
+     <div class="container w-75 rounded m-5 p-3" style="background-color: rgb(184, 181, 181); height: 300px;">
+        <h2>2.Marks Calculator</h2>
+        <div class="container">
+            <input type="text" id="inputAssignMarks" placeholder="Enter A Marks" style="height: 30px ;">
+            <button class="btn btn-primary"  onclick="addMarks()">Add Marks</button>
+             <button class="btn btn-primary" onclick="Calculate()">Calculate</button>
+            <button class="btn btn-primary" onclick="Reset()">Reset</button>
+        </div>
+        <div class="container" id="resultToDo"></div>
+    </div>
+</section>
+<script>
+    inputAssignMarksELMT=document.querySelector("# inputAssignMarks")
+    marksArray=[]
+    function addMarks(){
+
+    }
+
+</script>
+
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    
+  </body>
+</html>
